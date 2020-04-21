@@ -11,3 +11,71 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.wrapper{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+#drum-machine{
+  display: grid;
+  width: 80%;
+  height: 80%;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas: "header header header header"
+                      "pads pads pads controls"
+                      "pads pads pads controls"
+                      "pads pads pads controls";
+  border: 10px dotted blue;
+}
+
+#drum-machine > header {
+  grid-area: header;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: navy;
+  border: 2px solid blueviolet;
+  font-size:40px;
+}
+
+.drum-pad{
+  display:flex;
+  width:auto;
+  height:auto;
+  justify-content: center;
+  align-items: center;
+  background-color:lightslategray;
+  border: 2px solid black;
+}
+
+#padgrid{
+  display:grid;
+  grid-area:pads;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto auto;
+  border:solid 5px yellow;
+}
+
+#controlsbox{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items: center;
+  background-color:green;
+  grid-area:controls;
+}
+
+#display{
+  display: block;
+  width:90%;
+  height: 50px;
+  border: 2px solid black;
+  background-color: lightblue;
+}
+
