@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import DrumMachine from './containers/drum-machine'
+import DrumMachine from './components/drum-machine'
 
 function App() {
   return (

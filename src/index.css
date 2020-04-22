@@ -50,9 +50,22 @@ code {
   height:auto;
   justify-content: center;
   align-items: center;
-  background-color:lightslategray;
   border: 2px solid black;
 }
+
+.pad-active{
+  background-color:orangered;
+}
+
+.pad-inactive{
+  background-color:lightslategray;
+}
+
+.pad-label{
+  text-align:center;
+  font-size:60px;
+}
+
 
 #padgrid{
   display:grid;
