@@ -2,7 +2,7 @@
 //must be clickable and also must be assignable to a hotkey
 //must be able to assign audio element with id ="{hotkey}"
 
-import React, { Component } from 'react';
+import React from 'react';
 
 class DrumPad extends React.Component {
     constructor(props){
@@ -19,29 +19,48 @@ class DrumPad extends React.Component {
 
 componentDidMount(){
    //create callback to check if the key was the hotkey for the pad and trigger the audio. Should also change a state property to activate the button css animation
-    document.addEventListener('keydown', this.props.keyPressHandle)
-
+    document.addEventListener('keydown', this.keyPressHandle);
 }
 
 componentWillUnmount(){
-    document.removeEventListener('keydown')
+    document.removeEventListener('keydown', this.keyPressHandle);
 }
 
 
 playSound(){
-    //callback to play sound associated with instance
+    this.togglePadStyle();
+    const clip = document.getElementById(this.props.hotkey);
+    clip.currentTime=0;
+    var playPromise = clip.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(_ => {
+            // Automatic playback started!
+            // Show playing UI.
+            console.log("audio played auto");
+          })
+          .catch(error => {
+            // Auto-play was prevented
+            // Show paused UI.
+            console.log("playback prevented");
+          });
+      }
+    this.props.updateDisplay(this.props.clipId);
+    setTimeout(()=>this.togglePadStyle(), 150);
 }
 
 clickHandle(){
-    this.togglePadStyle();
-//call playSound method
-//update state.displaystring
+    this.playSound();
 }
 
-keyPressHandle(){
-    //toggle button style and call playSound method
-    //update state.displaystring
-        }
+keyPressHandle(e){
+ 
+    if(e.key === this.props.hotkey || e.keyCode === this.props.keyCode){
+        this.playSound();
+    }
+   
+}
 
 togglePadStyle(){
     if(this.state.padStyle === 'drum-pad pad-inactive'){
@@ -53,12 +72,10 @@ togglePadStyle(){
 
     render(){
         return(
-            <div className = {this.state.padStyle} id={this.props.id}
+            <div className = {this.state.padStyle} id={this.props.clipId}
                 onClick = {this.clickHandle}>
-                <audio className = 'clip' id={this.props.key} src={this.props.audioSrc} onEnded={this.togglePadStyle}> </audio>
-                <div className='pad-label'>
-                    {this.props.key}
-                </div>
+                <audio className = 'clip' id={this.props.hotkey} src={this.props.audioSrc}> </audio>
+                    {this.props.hotkey}
             </div>
         )
     }
