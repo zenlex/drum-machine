@@ -11,16 +11,37 @@ class DrumMachine extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            currentBank:drumBanks.bankA
+            currentBank:drumBanks.SteelDrum,
+            volVal : 0.5
         }
         this.updateDisplay = this.updateDisplay.bind(this);
+        this.volChange = this.volChange.bind(this);
+        this.clearDisplay = this.clearDisplay.bind(this);
     }
 
     updateDisplay(label){
-        this.setState({display:label})
+        this.setState({display:label});
+    }
+
+    volChange(e){
+        let val = e.target.value
+        this.setState({
+            volVal: val,
+            display: "Volume: " + (Math.floor(val *100))
+        });
+        setTimeout(() => this.clearDisplay() , 800);
+    }
+
+    clearDisplay(){
+        this.setState({display: ''})
     }
 
     render(){
+        const clips = [].slice.call(document.getElementsByClassName('clip'));
+        clips.forEach(sound => {
+        sound.volume = this.state.volVal
+        });
+
         return(
             <div id = 'drum-machine'>
                 <header>BAMF Drum Machine</header>
@@ -29,7 +50,11 @@ class DrumMachine extends React.Component{
                     <div id='display'>
                         <Display clipId={this.state.display}/>
                     </div>    
-                    Controls Go Here
+                    <div id='controls'>
+                        <h2>Volume:</h2>
+                        <input type='range' id='volume' min = '0' max = '1' step = '.01' value = {this.state.volVal} onChange={this.volChange}/>
+                    </div>
+                
                 </div>
             </div>
         )

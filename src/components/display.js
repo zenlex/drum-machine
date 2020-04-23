@@ -3,7 +3,6 @@
 import React from 'react';
 
 function Display(props){
-    console.log('Display Props = ', props);
     return(
         <p>{props.clipId}</p>
     )

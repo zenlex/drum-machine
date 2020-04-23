@@ -12,7 +12,7 @@ import SteelD_Z from './assets/audio/SteelD_Z.wav'
 import SteelD_X from './assets/audio/SteelD_X.wav'
 import SteelD_C from './assets/audio/SteelD_C.wav'
 
-export const bankA=[
+export const SteelDrum=[
     {
         hotkey: 'Q',
         keyCode: 81,

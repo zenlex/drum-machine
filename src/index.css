@@ -85,10 +85,25 @@ code {
 }
 
 #display{
-  display: block;
+  display: flex;
   width:90%;
+  justify-content: center;
   height: 50px;
   border: 2px solid black;
   background-color: lightblue;
 }
+
+#controls{
+  display:flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#volume{
+  width: 90%;
+}
+
+
 
