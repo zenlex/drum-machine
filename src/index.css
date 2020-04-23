@@ -50,15 +50,28 @@ code {
   height:auto;
   justify-content: center;
   align-items: center;
-  background-color:lightslategray;
   border: 2px solid black;
 }
 
+.pad-active{
+  background-color:orangered;
+}
+
+.pad-inactive{
+  background-color:lightslategray;
+}
+
+.pad-label{
+  text-align:center;
+  font-size:60px;
+}
+
+
 #padgrid{
   display:grid;
-  grid-area:pads;
-  grid-template-rows: auto auto auto;
   grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  grid-area: pads;
   border:solid 5px yellow;
 }
 

@@ -3,8 +3,9 @@
 import React from 'react';
 
 function Display(props){
+    console.log('Display Props = ', props);
     return(
-        <p>{props.display}</p>
+        <p>{props.clipId}</p>
     )
 }
 
