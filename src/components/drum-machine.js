@@ -11,7 +11,7 @@ class DrumMachine extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            currentBank:drumBanks.SteelDrum,
+            currentBank:drumBanks.dubStep,
             volVal : 0.5
         }
         this.updateDisplay = this.updateDisplay.bind(this);
