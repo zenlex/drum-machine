@@ -11,12 +11,15 @@ class DrumMachine extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            currentBank:drumBanks.dubStep,
+            currentBank:drumBanks[0],
+            currBankIndex:0,
+            noOfBanks: 3,
             volVal : 0.5
         }
         this.updateDisplay = this.updateDisplay.bind(this);
         this.volChange = this.volChange.bind(this);
         this.clearDisplay = this.clearDisplay.bind(this);
+        this.bankSelect = this.bankSelect.bind(this);
     }
 
     updateDisplay(label){
@@ -36,6 +39,39 @@ class DrumMachine extends React.Component{
         this.setState({display: ''})
     }
 
+    bankSelect(dir){
+        if(dir == 1){
+            if(this.state.currBankIndex < this.state.noOfBanks - 1){
+            this.setState(
+                {
+                    currBankIndex: currBankIndex + 1,
+                    currPadBank : drumBanks[currBankIndex]
+                });
+        } else {
+            this.setState(
+                {
+                    currBankIndex : 0,
+                    currPadBank : drumBanks[currBankIndex]
+                });
+            }
+        } 
+        if(dir == -1){
+            if(this.state.currBankIndex > 0){
+                this.setState(
+                    {
+                        currBankIndex: currBankIndex - 1,
+                        currPadBank : drumBanks[currBankIndex]
+                    });
+            } else {
+                this.setState(
+                    {
+                        currBankIndex : this.state.noOfBanks-1,
+                        currPadBank : drumBanks[currBankIndex]
+                    });
+               }
+        }             
+    }
+
     render(){
         const clips = [].slice.call(document.getElementsByClassName('clip'));
         clips.forEach(sound => {
@@ -51,6 +87,11 @@ class DrumMachine extends React.Component{
                         <Display clipId={this.state.display}/>
                     </div>    
                     <div id='controls'>
+                        <div id='bank-select'>
+                            <h2>Select Bank:</h2>
+                            <div id='bank-prev' />
+                            <div id='bank-next' />
+                        </div>
                         <h2>Volume:</h2>
                         <input type='range' id='volume' min = '0' max = '1' step = '.01' value = {this.state.volVal} onChange={this.volChange}/>
                     </div>
