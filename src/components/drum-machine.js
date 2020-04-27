@@ -80,7 +80,7 @@ class DrumMachine extends React.Component{
                             <div id='bank-prev' onClick={() => this.bankSelect('prev')} />
                             <div id='bank-next' onClick={() => this.bankSelect('next')} />
                         </div>
-                        <div>
+                        <div id='volume-contianer'>
                         <h2>Volume:</h2>
                         <input type='range' id='volume' min = '0' max = '1' step = '.01' value = {this.state.volVal} onChange={this.volChange}/>
                         </div>

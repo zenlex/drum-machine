@@ -128,7 +128,12 @@ code {
   justify-content: flex-start;
   color: white;
 }
-
+#volume-contianer{
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  align-items:center;
+}
 #volume{
   width: 80%;
   margin: 10px;
