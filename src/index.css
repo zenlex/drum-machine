@@ -105,5 +105,23 @@ code {
   width: 90%;
 }
 
+#bank-select{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
+#bank-prev{
+  width:50px;
+  height:50px;
+  background-color:red;
+  border: 3px solid pink;
+}
+
+#bank-next{
+  width:50px;
+  height:50px;
+  background-color:red;
+  border: 3px solid pink;
+}
 

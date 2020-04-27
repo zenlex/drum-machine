@@ -6,13 +6,14 @@ import React from 'react'
 import PadBank from './pad-bank'
 import Display from './display'
 import * as drumBanks from '../drumBanks.js'
-
+const drumBankIds = Object.keys(drumBanks);
+console.log("drumBankIds = ", drumBankIds);
 class DrumMachine extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            currentBank:drumBanks[0],
             currBankIndex:0,
+            currentBank:drumBanks[drumBankIds[0]],
             noOfBanks: 3,
             volVal : 0.5
         }
@@ -40,36 +41,22 @@ class DrumMachine extends React.Component{
     }
 
     bankSelect(dir){
-        if(dir == 1){
-            if(this.state.currBankIndex < this.state.noOfBanks - 1){
-            this.setState(
-                {
-                    currBankIndex: currBankIndex + 1,
-                    currPadBank : drumBanks[currBankIndex]
-                });
-        } else {
-            this.setState(
-                {
-                    currBankIndex : 0,
-                    currPadBank : drumBanks[currBankIndex]
-                });
-            }
-        } 
-        if(dir == -1){
-            if(this.state.currBankIndex > 0){
-                this.setState(
-                    {
-                        currBankIndex: currBankIndex - 1,
-                        currPadBank : drumBanks[currBankIndex]
-                    });
-            } else {
-                this.setState(
-                    {
-                        currBankIndex : this.state.noOfBanks-1,
-                        currPadBank : drumBanks[currBankIndex]
-                    });
-               }
-        }             
+        let newInd = this.state.currBankIndex;
+        let max = this.state.noOfBanks - 1;
+
+        if(dir === 'next'){
+            newInd = newInd < max ? newInd += 1 : 0;
+        }
+        if(dir === 'prev'){
+            newInd = newInd > 0 ? newInd -= 1 : max;
+        }
+
+        this.setState(
+            {
+                currBankIndex: newInd,
+                currentBank: drumBanks[drumBankIds[newInd]]
+            });
+        this.updateDisplay(drumBankIds[newInd])
     }
 
     render(){
@@ -89,8 +76,8 @@ class DrumMachine extends React.Component{
                     <div id='controls'>
                         <div id='bank-select'>
                             <h2>Select Bank:</h2>
-                            <div id='bank-prev' />
-                            <div id='bank-next' />
+                            <div id='bank-prev' onClick={() => this.bankSelect('prev')} />
+                            <div id='bank-next' onClick={() => this.bankSelect('next')} />
                         </div>
                         <h2>Volume:</h2>
                         <input type='range' id='volume' min = '0' max = '1' step = '.01' value = {this.state.volVal} onChange={this.volChange}/>
