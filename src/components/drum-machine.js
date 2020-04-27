@@ -25,6 +25,7 @@ class DrumMachine extends React.Component{
 
     updateDisplay(label){
         this.setState({display:label});
+        setTimeout(() => this.clearDisplay(), 1500);
     }
 
     volChange(e){
