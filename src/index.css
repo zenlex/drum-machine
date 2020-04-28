@@ -20,6 +20,7 @@ code {
 
 .wrapper{
   display: flex;
+  display: -webkit-flex;
   width: auto;
   height: 100vh;
   padding: 10px;
@@ -29,6 +30,7 @@ code {
 
 #drum-machine{
   display: flex;
+  display: -webkit-flex;
   flex-direction:column;
   width: 100%;
   height: auto;
@@ -48,11 +50,12 @@ code {
 #drum-machine > header {
   grid-area: header;
   display:flex;
+  display: -webkit-flex;
   height: 50px;
   justify-content: center;
   align-items: center;
   background-color: navy;
-  border: 2px solid blueviolet;
+  border: 5px solid orange;
   font-size:20px;
   color: white;
 }
@@ -70,6 +73,7 @@ code {
 
 .drum-pad{
   display:flex;
+  display: -webkit-flex;
   width:auto;
   height:auto;
   justify-content: center;
@@ -99,17 +103,20 @@ code {
 
 #controlsbox{
   display:flex;
+  display: -webkit-flex;
   height:100%;
   max-height:200px;
   flex-direction:column;
   justify-content: space-around;
   align-items: center;
+  border: 5px solid orange;
   background-color:navy;
   grid-area:controls;
 }
 
 #display{
   display: flex;
+  display: -webkit-flex;
   width:90%;
   justify-content: center;
   align-items: center;
@@ -121,6 +128,7 @@ code {
 
 #controls{
   display:flex;
+  display: -webkit-flex;
   width: 100%;
   height: 100%;
   flex-direction: column;
@@ -130,6 +138,7 @@ code {
 }
 #volume-contianer{
   display:flex;
+  display: -webkit-flex;
   flex-direction:column;
   width:100%;
   align-items:center;
@@ -141,6 +150,7 @@ code {
 
 #bank-select{
   display: flex;
+  display: -webkit-flex;
   width:100%;
   justify-content: space-evenly;
   align-items: center;
@@ -193,45 +203,25 @@ code {
   }
  
   #drum-machine > header {
-    grid-area: header;
-    display:flex;
     height: 100%;
-    justify-content: center;
-    align-items: center;
     background-color: navy;
-    border: 5px solid orange;
     font-size:2em;
-    color: white;
   }
 
   #controlsbox{
-    height:100%;
     max-height:none;
-    border: 5px solid orange;
     border-top: 0px;
     border-left: 2px;
   }
 
   #display{
-    display: flex;
-    width:90%;
-    justify-content: center;
-    align-items: center;
     height: 100px;
     margin: 30px;
-    border: 2px solid black;
-    background-color: lightblue;
     font-size: 1.25em;
   }
 
   #controls{
-    display:flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-around;
-    color: white;
   }
 
   #padgrid{
