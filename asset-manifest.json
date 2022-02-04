@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/drummachine/static/css/main.8260cade.css",
-    "main.js": "/drummachine/static/js/main.e794f5e0.js",
+    "main.css": "/drummachine/static/css/main.13553370.css",
+    "main.js": "/drummachine/static/js/main.2baf1207.js",
     "static/media/BD.wav": "/drummachine/static/media/BD.12b04dbf4ca934383341.wav",
     "static/media/Snare.wav": "/drummachine/static/media/Snare.b85bef4f3f1dc738318c.wav",
     "static/media/SteelD_A.wav": "/drummachine/static/media/SteelD_A.378489d7dc05a3eb79e7.wav",
@@ -30,11 +30,11 @@
     "static/media/DS-C-Snare.wav": "/drummachine/static/media/DS-C-Snare.bf1f758573775080a27d.wav",
     "static/media/DS-A-ClosedHat.wav": "/drummachine/static/media/DS-A-ClosedHat.fec492b28d3bcec8027d.wav",
     "index.html": "/drummachine/index.html",
-    "main.8260cade.css.map": "/drummachine/static/css/main.8260cade.css.map",
-    "main.e794f5e0.js.map": "/drummachine/static/js/main.e794f5e0.js.map"
+    "main.13553370.css.map": "/drummachine/static/css/main.13553370.css.map",
+    "main.2baf1207.js.map": "/drummachine/static/js/main.2baf1207.js.map"
   },
   "entrypoints": [
-    "static/css/main.8260cade.css",
-    "static/js/main.e794f5e0.js"
+    "static/css/main.13553370.css",
+    "static/js/main.2baf1207.js"
   ]
 }
