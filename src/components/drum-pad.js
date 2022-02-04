@@ -18,6 +18,7 @@ class DrumPad extends React.Component {
   }
 
   componentDidMount() {
+    //create callback to check if the key was the hotkey for the pad and trigger the audio. Should also change a state property to activate the button css animation
     document.addEventListener('keydown', this.keyPressHandle);
   }
 
@@ -25,17 +26,23 @@ class DrumPad extends React.Component {
     document.removeEventListener('keydown', this.keyPressHandle);
   }
 
+
   playSound() {
     this.togglePadStyle();
     const clip = document.getElementById(this.props.hotkey);
     clip.currentTime = 0;
     var playPromise = clip.play();
+
     if (playPromise !== undefined) {
       playPromise
         .then(_ => {
+          // Automatic playback started!
+          // Show playing UI.
           console.log("audio played auto");
         })
         .catch(error => {
+          // Auto-play was prevented
+          // Show paused UI.
           console.log("playback prevented");
         });
     }
@@ -68,7 +75,9 @@ class DrumPad extends React.Component {
       <div className={this.state.padStyle} id={this.props.clipId}
         onClick={this.clickHandle}>
         <audio className='clip' id={this.props.hotkey} src={this.props.audioSrc}> </audio>
-        {this.props.hotkey}
+        <div className='keylabel'>
+          {this.props.hotkey}
+        </div>
       </div>
     )
   }

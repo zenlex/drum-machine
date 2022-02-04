@@ -1,4 +1,4 @@
-*, ::before, ::after{
+*, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: repeating-radial-gradient( black 10%, orange 22%, navy 40%);
+  background-image: repeating-radial-gradient(black 10%, orange 22%, navy 40%);
 }
 
 code {
@@ -18,7 +18,7 @@ code {
     monospace;
 }
 
-.wrapper{
+.wrapper {
   display: flex;
   width: auto;
   height: 100vh;
@@ -27,86 +27,85 @@ code {
   align-items: center;
 }
 
-#drum-machine{
+#drum-machine {
   display: flex;
   display: -webkit-flexbox;
-  flex-direction:column;
+  flex-direction: column;
   width: 100%;
   height: auto;
-  padding:3px;
-  border:3px solid navy;
+  padding: 3px;
+  border: 3px solid navy;
   background-color: black;
-  box-shadow:0px 0px 20px 10px white;
+  box-shadow: 0px 0px 20px 10px white;
 }
 
-#drum-machine > header {
+#drum-machine>header {
   grid-area: header;
-  display:flex;
+  display: flex;
   display: -webkit-flexbox;
   height: 50px;
   justify-content: center;
   align-items: center;
   background-color: navy;
   border: 5px solid orange;
-  font-size:20px;
+  font-size: 20px;
   color: white;
 }
 
-#padgrid{
-  display:grid;
-  height:100%;
+#padgrid {
+  display: grid;
+  height: 100%;
   grid-template-columns: 33% 34% 33%;
   grid-template-rows: 33% 34% 33%;
   grid-area: pads;
-  border:solid 5px orange;
-  background-color:black;
+  border: solid 5px orange;
+  background-color: black;
 }
 
-.drum-pad{
-  display:flex;
+.drum-pad {
+  display: flex;
   display: -webkit-flexbox;
   flex: 0 1;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
-  font-size:2em;
-  border-radius:10px;
+  font-size: 2em;
+  border-radius: 10px;
 }
 
-.pad-active{
-  background-color:orangered;
+.pad-active {
+  background-color: orangered;
   box-shadow: inset 0px 0px 10px black;
   outline: none;
 }
 
-.pad-inactive{
-  background-color:lightslategray;
+.pad-inactive {
+  background-color: lightslategray;
   box-shadow: 0px 0px 10px black;
 }
 
-.pad-label{
-  text-align:center;
-  font-size:60px;
+.keylabel {
+  visibility: hidden;
 }
 
 
 
-#controlsbox{
-  display:flex;
+#controlsbox {
+  display: flex;
   display: -webkit-flexbox;
-  height:100%;
-  max-height:200px;
-  flex-direction:column;
+  height: 100%;
+  max-height: 200px;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   border: 5px solid orange;
-  background-color:navy;
-  grid-area:controls;
+  background-color: navy;
+  grid-area: controls;
 }
 
-#display{
+#display {
   display: flex;
-  width:90%;
+  width: 90%;
   justify-content: center;
   align-items: center;
   height: 50px;
@@ -115,8 +114,8 @@ code {
   background-color: lightblue;
 }
 
-#controls{
-  display:flex;
+#controls {
+  display: flex;
   width: 100%;
   height: 100%;
   flex-direction: column;
@@ -124,96 +123,108 @@ code {
   justify-content: flex-start;
   color: white;
 }
-#volume-contianer{
-  display:flex;
-  display: -webkit-flexbox;
-  flex-direction:column;
-  width:100%;
-  align-items:center;
+
+#volume-contianer {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
-#volume{
+
+#volume {
   width: 80%;
   margin: 10px;
 }
 
-#bank-select{
+#bank-select {
   display: flex;
   display: -webkit-flexbox;
-  width:100%;
+  width: 100%;
   justify-content: space-evenly;
   align-items: center;
   color: white;
-  margin:10px 0px;
+  margin: 10px 0px;
 }
 
-#bank-prev{
-  width:0;
-  height:0;
-  margin:5px;
+#bank-prev {
+  width: 0;
+  height: 0;
+  margin: 5px;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
   border-right: 15px solid orange;
 }
 
-#bank-next{
-  width:0;
-  height:0;
-  margin:5px;
+#bank-next {
+  width: 0;
+  height: 0;
+  margin: 5px;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
 
   border-left: 15px solid orange;
 }
 
-@media only screen and (max-height: 500px){
-.wrapper{
-  height:auto;
-}
-}
-
-@media only screen and (min-height: 768px){
-  .drum-pad{
-    min-height:175px;
+@media only screen and (max-height: 500px) {
+  .wrapper {
+    height: auto;
   }
 }
 
-@media only screen and (min-width: 1024px){
-  #drum-machine{
+@media only screen and (min-height: 768px) {
+  .drum-pad {
+    min-height: 175px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #drum-machine {
     display: grid;
     width: 90%;
     height: 90%;
     grid-template-columns: auto auto auto auto;
     grid-template-rows: auto auto auto auto;
     grid-template-areas: "header header header header"
-                        "pads pads pads controls"
-                        "pads pads pads controls"
-                        "pads pads pads controls";
+      "pads pads pads controls"
+      "pads pads pads controls"
+      "pads pads pads controls";
   }
- 
-  #drum-machine > header {
+
+  #drum-machine>header {
     height: 100%;
     background-color: navy;
-    font-size:2em;
+    font-size: 2em;
   }
 
-  #controlsbox{
-    max-height:none;
+  #controlsbox {
+    max-height: none;
     border-top: 0px;
     border-left: 2px;
-    flex:0 1;
+    flex: 0 1;
   }
 
-  #display{
+  #display {
     height: 100px;
     margin: 30px auto;
     font-size: 1.25em;
   }
 
-  #controls{
+  #controls {
     justify-content: space-around;
   }
 
-  #padgrid{
+  #padgrid {
     border-top: none;
+  }
+
+  .keylabel {
+    visibility: visible;
+  }
+
+  #volume-contianer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
   }
 }
