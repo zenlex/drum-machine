@@ -8,16 +8,10 @@
 body {
   font-family: 'Rock Salt', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-image: repeating-radial-gradient(black 10%, orange 22%, navy 40%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
+/* MAIN CONTAINERS */
 .wrapper {
   display: flex;
   width: auto;
@@ -29,7 +23,6 @@ code {
 
 #drum-machine {
   display: flex;
-  display: -webkit-flexbox;
   flex-direction: column;
   width: 100%;
   height: auto;
@@ -42,7 +35,6 @@ code {
 #drum-machine>header {
   grid-area: header;
   display: flex;
-  display: -webkit-flexbox;
   height: 50px;
   justify-content: center;
   align-items: center;
@@ -52,6 +44,7 @@ code {
   color: white;
 }
 
+/* DRUM PADS */
 #padgrid {
   display: grid;
   height: 100%;
@@ -64,7 +57,6 @@ code {
 
 .drum-pad {
   display: flex;
-  display: -webkit-flexbox;
   flex: 0 1;
   justify-content: center;
   align-items: center;
@@ -88,8 +80,7 @@ code {
   visibility: hidden;
 }
 
-
-
+/* CONTROLS AND DISPLAY PANE */
 #controlsbox {
   display: flex;
   display: -webkit-flexbox;
@@ -165,6 +156,7 @@ code {
   border-left: 15px solid orange;
 }
 
+/* RESPONSIVE ADJUSTMENTS */ 
 @media only screen and (max-height: 500px) {
   .wrapper {
     height: auto;

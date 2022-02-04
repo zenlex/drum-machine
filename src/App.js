@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import DrumMachine from './components/drum-machine'
 
 function App() {

@@ -1,9 +1,4 @@
-//drum pad element
-//must be clickable and also must be assignable to a hotkey
-//must be able to assign audio element with id ="{hotkey}"
-
 import React from 'react';
-
 class DrumPad extends React.Component {
   constructor(props) {
     super(props);
@@ -35,14 +30,10 @@ class DrumPad extends React.Component {
 
     if (playPromise !== undefined) {
       playPromise
-        .then(_ => {
-          // Automatic playback started!
-          // Show playing UI.
+        .then(() => {
           console.log("audio played auto");
         })
         .catch(error => {
-          // Auto-play was prevented
-          // Show paused UI.
           console.log("playback prevented");
         });
     }
